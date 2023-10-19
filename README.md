@@ -14,7 +14,7 @@ Table: online_orders
 
 a) Calculate revenue by taking sum of cost * units
 
-b) Filter for Jan - June 2022
+b) Filter for January - June 2022
 
 c) Group by product_id, filter by revenue
 
@@ -175,9 +175,9 @@ Table: google_file_store
 
 #### Logic:
 
-a) Count number of occurrences of word 'bull' with count and like clauses
+a) Count number of occurrences of word 'bull' with count function and like operator
 
-b) Count number of occurrences of word 'bear' with count and like clauses
+b) Count number of occurrences of word 'bear' with count function and like operator
 
 c) Stack results of both select statements vertically with union clause
 
@@ -211,11 +211,9 @@ Table: airbnb_host_searches
 
 a) Use case expression to create new rows based on the number of reviews
 
-b) Select new rows as well as five other columns of interest
+b) Store result of query in common table expression (CTE)
 
-c) Store result of query in common table expression (cte)
-
-d) Select the minimum, maximum and average of the price column from the cte, while grouping by popularity
+c) Select the minimum, maximum and average of the price column from the CTE, while grouping by popularity
 
 ```
 WITH cte AS
