@@ -78,7 +78,7 @@ Table: airbnb_contacts
 
 #### Logic:
 
-a) Use dense_rank() to rank guest id on the sum of messages while not skipping rankings
+a) Use dense_rank() to rank each guest id on the sum of messages while not skipping rankings
 
 b) Select sum of messages with sum()
 
