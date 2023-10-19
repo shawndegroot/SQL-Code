@@ -10,6 +10,14 @@ Output their IDs and the total revenue.
 
 Table: online_orders
 
+#### Logic:
+
+a) Calculate revenue by taking sum of cost * units
+
+b) Filter for Jan - June 2022
+
+c) Group by product_id, filter by revenue
+
 ```
 SELECT PRODUCT_ID, SUM(cost_in_dollars*units_sold) AS revenue
 FROM online_orders t1
@@ -25,6 +33,13 @@ Write a query that will calculate the number of shipments per month. The unique 
 
 Table: amazon_shipment
 
+
+#### Logic:
+
+a) Select and group by month with to_char()
+
+b) use count() as aggregate to count shipments
+
 ```
 SELECT TO_CHAR(shipment_date, 'YYYY-MM') AS date, COUNT(sub_id) AS shipments
 FROM amazon_shipment t1
@@ -36,6 +51,14 @@ ORDER BY date
 Find the most profitable company from the financial sector. Output the result along with the continent.
 
 Table: forbes_global_2010_2014
+
+#### Logic:
+
+a) Filter for Financial sector using where clause
+
+b) Order by profits column descending 
+
+c) Use limit to include only top company
 
 ```
 SELECT company, continent
@@ -54,6 +77,14 @@ Output the rank, guest id, and number of total messages they've sent. Order by t
 
 Table: airbnb_contacts
 
+#### Logic:
+
+a) Use dense_rank() to rank guest id on the sum of messages while not skipping rankings
+
+b) Select sum of messages with sum()
+
+c) Group by guest id and order by lowest rank first
+
 ```
 SELECT id_guest, DENSE_RANK() OVER (ORDER BY SUM(n_messages) DESC) AS ranks, SUM(n_messages)
 FROM airbnb_contacts t1
@@ -67,6 +98,12 @@ Find the employee with the highest salary per department.
 Output the department name, employee's first name along with the corresponding salary.
 
 Table: employee
+
+#### Logic:
+
+a) Use subquery to select the maximum salary by department
+
+b) Select employees with highest salary from subquery
 
 ```
 SELECT department, first_name, salary
@@ -88,6 +125,12 @@ Output the number of survivors and non-survivors by each class.
 
 Table: titanic
 
+#### Logic:
+
+a) Use case expression to create columns for passenger class 
+
+b) Group by survived column to show survivors/non-survivors by passenger class
+
 ```
 SELECT survived, SUM(CASE WHEN pclass = 1 THEN 1 ELSE 0 END) AS first_class, 
                 SUM(CASE WHEN pclass = 2 THEN 1 ELSE 0 END) AS second_class, 
@@ -103,6 +146,16 @@ GROUP BY survived
 Find the top 5 states with the most 5 star businesses. Output the state name along with the number of 5-star businesses and order records by the number of 5-star businesses in descending order. In case there are ties in the number of businesses, return all the unique states. If two states have the same result, sort them in alphabetical order.
 
 Table: yelp_business
+
+#### Logic:
+
+a) Group by state with the count of business id as aggregate
+
+b) Use where clause to filter for 5 stars
+
+c) Order by count of business id descending followed by state alphabetically
+
+d) Limit to first 6 rows as one row is Canadian province
 
 ```
 SELECT state, COUNT(business_id) AS counts
@@ -120,14 +173,22 @@ Output the word 'bull' and 'bear' along with the corresponding number of occurre
 
 Table: google_file_store
 
+#### Logic:
+
+a) Count number of occurrences of word 'bull' with count() and like
+
+b) Count number of occurrences of word 'bear' with count() and like
+
+c) Stack results of both select statements vertically with union clause
+
 ```
 SELECT 'bull' AS words, COUNT(*)
 FROM google_file_store t1
-WHERE contents ILIKE '%bull%'
+WHERE contents LIKE '%bull%'
 UNION
 SELECT 'bear' AS words, COUNT(*)
 FROM google_file_store t1
-WHERE contents ILIKE '%bear%'
+WHERE contents LIKE '%bear%'
 ```
 
 
@@ -145,6 +206,16 @@ Tip: The id column in the table refers to the search ID. You'll need to create y
 Output host popularity rating and their minimum, average and maximum rental prices.
 
 Table: airbnb_host_searches
+
+#### Logic:
+
+a) Use case expression to create new rows based on the number of reviews
+
+b) Select new rows as well as five other columns of interest
+
+c) Store result of query in common table expression (cte)
+
+d) Select the minimum, maximum and average of the price column from the cte, while grouping by popularity
 
 ```
 WITH cte AS
