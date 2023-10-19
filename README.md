@@ -72,7 +72,7 @@ Table: employee
 SELECT department, first_name, salary
 FROM employee t1
 WHERE (department, salary) IN 
-    (SELECT department, max(salary)
+    (SELECT department, MAX(salary)
     FROM employee t1
     GROUP BY department)
 ```
