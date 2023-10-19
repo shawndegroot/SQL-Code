@@ -175,9 +175,9 @@ Table: google_file_store
 
 #### Logic:
 
-a) Count number of occurrences of word 'bull' with count() and like
+a) Count number of occurrences of word 'bull' with count and like clauses
 
-b) Count number of occurrences of word 'bear' with count() and like
+b) Count number of occurrences of word 'bear' with count and like clauses
 
 c) Stack results of both select statements vertically with union clause
 
