@@ -26,7 +26,7 @@ Write a query that will calculate the number of shipments per month. The unique 
 Table: amazon_shipment
 
 ```
-SELECT to_char(shipment_date, 'YYYY-MM') AS date, count(sub_id) AS shipments
+SELECT TO_CHAR(shipment_date, 'YYYY-MM') AS date, COUNT(sub_id) AS shipments
 FROM amazon_shipment t1
 GROUP BY date
 ORDER BY date
