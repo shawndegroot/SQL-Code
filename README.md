@@ -1,5 +1,5 @@
 # Stratascratch-Code
-Solutions to Stratascratch SQL questions.
+Solutions to [Stratascratch](https://platform.stratascratch.com/user/DeGroot) SQL questions.
 
 ## Easy
 ### [1. Most Lucrative Products](https://platform.stratascratch.com/coding/2119-most-lucrative-products?code_type=1)
