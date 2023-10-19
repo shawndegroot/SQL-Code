@@ -44,7 +44,6 @@ b) use count() as aggregate to count shipments
 SELECT TO_CHAR(shipment_date, 'YYYY-MM') AS date, COUNT(sub_id) AS shipments
 FROM amazon_shipment t1
 GROUP BY date
-ORDER BY date
 ```
 ### [3. Find the most profitable company in the financial sector of the entire world along with its continent](https://platform.stratascratch.com/coding/9663-find-the-most-profitable-company-in-the-financial-sector-of-the-entire-world-along-with-its-continent?code_type=1)
 
