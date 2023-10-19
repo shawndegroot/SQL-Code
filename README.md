@@ -58,7 +58,7 @@ a) Filter for Financial sector using where clause
 
 b) Order by profits column descending 
 
-c) Use limit to include only top company
+c) Use limit clause to include only top company
 
 ```
 SELECT company, continent
