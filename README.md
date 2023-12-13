@@ -1,4 +1,4 @@
-# Stratascratch-Code
+# SQL-Code
 Solutions to [Stratascratch](https://platform.stratascratch.com/user/DeGroot) SQL questions.
 
 ## Easy
